@@ -1,0 +1,15 @@
+# Search Table
+query: |
+  SELECT
+    *
+  FROM
+    `tm-ml-platform.dataflow_learning.doggos`
+
+# Input file paths
+gcs_img_path: gs://stanford-dogs-dataset/{}/*.jpg
+
+# Output table
+output:
+  project: tm-ml-platform
+  dataset: dataflow_learning
+  table: doggos_prediction
