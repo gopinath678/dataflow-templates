@@ -71,7 +71,7 @@ def create_pipeline_options():
         '--runner={}'.format(BEAM_RUNNER),
         '--temp_location=gs://ml-platform-dataflow-staging/temp',
         '--staging_location=gs://ml-platform-dataflow-staging/staging',
-        '--job_name=doggos-predict-{}-{}'.format(UNIQUE_ID, get_random_string(6)),
+        '--job_name=doggos-predict-by-{}-{}'.format(UNIQUE_ID, get_random_string(6)),
         '--num_workers={}'.format(NUM_WORKERS),
         '--region=us-west1',
         '--autoscaling_algorithm=NONE',
