@@ -28,7 +28,7 @@ def run_command(shell_command, throw_error=True):
 
 
 def gcs_download_dir(remote_path, local_path='/tmp/'):
-    run_command('gsutil -m cp -r ' + remote_path + ' ' + local_path, throw_error=False)
+    run_command('gsutil -m cp -r ' + remote_path + ' ' + local_path, throw_error=True)
 
 
 def get_random_string(N):
