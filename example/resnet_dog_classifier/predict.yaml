@@ -4,6 +4,10 @@ query: |
     *
   FROM
     `tm-ml-platform.dataflow_learning.doggos`
+  ORDER BY
+    generate_uuid() # random order
+  LIMIT
+    1000
 
 # Input file paths
 gcs_img_path: gs://stanford-dogs-dataset/{}/*.jpg
