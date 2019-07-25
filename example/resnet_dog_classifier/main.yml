@@ -16,4 +16,4 @@ gcs_img_path: gs://stanford-dogs-dataset/{}/*.jpg
 output:
   project: tm-ml-platform
   dataset: dataflow_learning
-  table: doggos_prediction_test
+  table: [NAME YOUR TABLE]
