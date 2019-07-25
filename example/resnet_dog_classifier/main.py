@@ -20,12 +20,6 @@ import logging
 
 logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
 
-NUM_WORKERS = 20
-REQUIREMENTS_FILE = "requirements.txt"
-WORKER_SETUP_FILE = "./setup.py"
-MACHINE_TYPE = "n1-standard-1"
-NUM_CORES = 1
-
 
 def run_pipeline(yaml_config):
     pipeline_options = util.create_pipeline_options()

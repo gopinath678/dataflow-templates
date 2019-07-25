@@ -12,6 +12,8 @@ REQUIREMENTS_FILE = "requirements.txt"
 WORKER_SETUP_FILE = "./setup.py"
 MACHINE_TYPE = "n1-standard-1"
 NUM_CORES = 1
+BEAM_RUNNER = "DataflowRunner"
+UNIQUE_ID = [ENTER YOUR NAME HERE]
 
 
 def run_command(shell_command, throw_error=True):
@@ -66,10 +68,10 @@ def create_table_schema():
 def create_pipeline_options():
     pipeline_options = PipelineOptions([
     	'--project=tm-ml-platform',
-    	'--runner=DataflowRunner',
+    	'--runner={}'.format(BEAM_RUNNER),
         '--temp_location=gs://ml-platform-dataflow-staging/temp',
         '--staging_location=gs://ml-platform-dataflow-staging/staging',
-        '--job_name=doggos-predict-{}'.format(get_random_string(6)),
+        '--job_name=doggos-predict-{}-{}'.format(UNIQUE_ID, get_random_string(6)),
         '--num_workers={}'.format(NUM_WORKERS),
         '--region=us-west1',
         '--autoscaling_algorithm=NONE',
