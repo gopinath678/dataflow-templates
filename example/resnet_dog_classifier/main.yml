@@ -4,8 +4,8 @@ query: |
     *
   FROM
     `tm-ml-platform.dataflow_learning.doggos`
-  ORDER BY
-    generate_uuid() # random order
+  WHERE
+    MOD(ABS(FARM_FINGERPRINT(url)), 100) < 20
   LIMIT
     1000
 
