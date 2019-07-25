@@ -1,4 +1,5 @@
 import logging
+import time
 from beam_functions import util
 
 from keras.applications.resnet50 import ResNet50
@@ -24,6 +25,7 @@ def predict_images(bq_rows, yaml_config):
 
     # Predicting
     logging.info("Predicting on images")
+    start = time.time()
     img_predictions = []
     for image_col in image_cols:
         image_key = image_col['url'].split('/')[-1]
@@ -45,6 +47,8 @@ def predict_images(bq_rows, yaml_config):
             'prediction': pred_breed,
             'score': str(score)
         })
+    end = time.time()
+    logging.info("Prediction took: {:.2f} sec".format(end-start))
 
     # Clean up images
     util.run_command("rm -rf {}".format(imgs_dir), throw_error=True)
