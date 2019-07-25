@@ -20,11 +20,13 @@ def predict_images(bq_rows, yaml_config):
     util.gcs_download_dir(yaml_config['gcs_img_path'].format(pkey), imgs_dir)
 
     # Load model
-    logging.info("Loading model")
+    start = time.time()
     model = ResNet50(weights='imagenet')
+    end = time.time()
+    logging.info("Model loading for breed {} took: {:.2f} sec".format(pkey, end - start))
 
     # Predicting
-    logging.info("Predicting on images")
+    logging.info("Predicting on breed: {}".format(pkey))
     start = time.time()
     img_predictions = []
     for image_col in image_cols:
