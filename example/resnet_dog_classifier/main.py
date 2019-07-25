@@ -40,7 +40,7 @@ def run_pipeline(yaml_config):
 
 
 if __name__ == '__main__':
-    assert sys.version_info[0] == 2, "Python 2 needed"
+    # assert sys.version_info[0] == 2, "Python 2 needed"
     yaml_path = docopt(__doc__)['<yaml_config>']
     with open(yaml_path) as f:
         yaml_config = yaml.safe_load(f)
